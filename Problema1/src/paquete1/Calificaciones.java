@@ -14,6 +14,12 @@ public class Calificaciones {
         calificacion2 = c2;
         calificacion3 = (calificacion1 + calificacion2) / 2;
     }
+     public Calificaciones(String n, double c1, double c2, double c3) {
+        nombreE = n;
+        calificacion1 = c1;
+        calificacion2 = c2;
+        calificacion3 = c3;
+    }
 
     public void establecerNombreE(String c) {
         nombreE = c;
@@ -27,8 +33,8 @@ public class Calificaciones {
         calificacion2 = c;
     }
 
-    public void establecerCalificacion3() {
-        calificacion3 = (calificacion1 + calificacion2) / 2;
+    public void establecerCalificacion3(double x) {
+        calificacion3 = x;
     }
 
     public void establecerPromedio() {

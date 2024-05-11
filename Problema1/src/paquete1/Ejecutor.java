@@ -10,42 +10,53 @@ public class Ejecutor {
         double calificacion3;
         double promedio;
         boolean bandera;
-        String opcion;
+        int opcion;
         Scanner entrada = new Scanner(System.in);
 
-        // Inicio de proceso iterativo 
         bandera = true;
-        while (bandera) { // bandera == true
-            System.out.println("Ingrese el nombre del vendedor");
-            nombre = entrada.nextLine();
-            System.out.println("Ingrese edad del vendedor");
-            edad = entrada.nextInt();
-            System.out.println("Ingrese el salario mínimo");
-            sMinino = entrada.nextDouble();
-            System.out.println("Ingrese el número de autos vendidos");
-            autos = entrada.nextInt();
+        while (bandera) {
+            System.out.println("=================MENU========================");
+            System.out.println("Ingrese (1) si desea crear un objeto de 2 calificaiones:");
+            System.out.println("Ingrese (2) si desea crear un objeto de 3 calificaiones:");
+            System.out.println("Ingrese (3) para salir");
+            opcion = entrada.nextInt();
+            System.out.println("=============================================");
+            
 
-            // con los datos ingresados se crea el objeto de tipo Vendedor
-            Vendedor v = new Vendedor(nombre, edad, sMinino, autos);
-            v.calcularPagoMensual();
-            System.out.printf("Datos de Vendedor\n"
-                    + "Nombre: %s\n"
-                    + "Edad: %s\n"
-                    + "Salario mínimo: %.2f\n"
-                    + "Número de autos: %d\n"
-                    + "Pago mensual: %.2f\n", v.obtenerNombres(), v.obtenerEdad(),
-                    v.obtenerSalarioMinimo(), v.obtenerNumeroAutos(),
-                    v.obtenerPagoMensual());
+            if (opcion == 1) {
+                System.out.print(" Ingrese nombre del estudiante: ");
+                nombreE = entrada.next();
+                System.out.print(" Ingrese calificacion 1: ");
+                calificacion1 = entrada.nextDouble();
+                System.out.print(" Ingrese calificacion 2: ");
+                calificacion2 = entrada.nextDouble();
 
-            entrada.nextLine(); // limpieza del buffer
-            System.out.println("Desea ingresar más vendedores. Ingrese n para"
-                    + " salir");
-            opcion = entrada.nextLine();
-            if (opcion.equals("n")) {
+                Calificaciones estudiante = new Calificaciones(nombreE, calificacion1, 
+                        calificacion2);
+                estudiante.establecerPromedio();
+
+                System.out.printf("%s",estudiante);
+                
+            } else if (opcion == 2) {
+                System.out.println("=========================================");
+                System.out.print("Ingrese nombre del estudiante: ");
+                nombreE = entrada.next();
+                System.out.print(" Ingrese calificacion 1: ");
+                calificacion1 = entrada.nextDouble();
+                System.out.print(" Ingrese calificacion 2: ");
+                calificacion2 = entrada.nextDouble();
+                System.out.print(" Ingrese calificacion 3: ");
+                calificacion3 = entrada.nextDouble();
+
+                Calificaciones estudiante = new Calificaciones(nombreE, calificacion1,
+                        calificacion2, calificacion3);
+                estudiante.establecerPromedio();
+
+                System.out.printf("%s",estudiante);
+            } else if (opcion == 3) {
+                System.out.println("Saliendo...");
                 bandera = false;
-            }
-
+            } 
         }
-    }
-    
+    }    
 }
